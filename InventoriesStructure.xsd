@@ -175,7 +175,7 @@
         <xs:complexContent>
             <xs:extension base="itemBaseType">
                 <xs:sequence>
-                    <xs:element name="STAT_REASON"  minOccurs="0">
+                    <xs:element name="STAT_REASON" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Additional information relevant to the CBU status
                             </xs:documentation>
@@ -214,42 +214,42 @@
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="COLL_DATE"  minOccurs="0">
+                    <xs:element name="COLL_DATE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Date that the CBU was collected</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="PROC_DATE"  minOccurs="0">
+                    <xs:element name="PROC_DATE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Date that the processing started</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="PROC_METH"  minOccurs="0">
+                    <xs:element name="PROC_METH" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Processing method used</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="PROC_METH_TYPE"  minOccurs="0">
+                    <xs:element name="PROC_METH_TYPE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Processing method type used</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="FREEZE_DATE"  minOccurs="0">
+                    <xs:element name="FREEZE_DATE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Date that the CBU was frozen.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="FREEZE_METH"  minOccurs="0">
+                    <xs:element name="FREEZE_METH" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Freezing method used</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="PROD_MOD"  minOccurs="0">
+                    <xs:element name="PROD_MOD" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Product modifications made</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="BAG_TYPE"  minOccurs="0">
+                    <xs:element name="BAG_TYPE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Type of bag used (bag fractions / split unit)
                             </xs:documentation>
@@ -260,17 +260,17 @@
                             <xs:documentation xml:lang="en">Number of bags for CBU sub units</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="BACT_CULT"  minOccurs="0">
+                    <xs:element name="BACT_CULT" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Bacterial culture</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="FUNG_CULT"  minOccurs="0">
+                    <xs:element name="FUNG_CULT" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Fungal culture</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="HEMO_STATUS"  minOccurs="0">
+                    <xs:element name="HEMO_STATUS" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Hemoglobinopathy screening status</xs:documentation>
                         </xs:annotation>
@@ -290,13 +290,13 @@
                         </xs:annotation>
 
                     </xs:element>
-                    <xs:element name="TNC"  minOccurs="0">
+                    <xs:element name="TNC" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Total number of nucleated cells (before processing)
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="TNC_FRZN"  minOccurs="0">
+                    <xs:element name="TNC_FRZN" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Total number of nucleated cells (post processing, prior to
                                 cryopreservation)
@@ -310,20 +310,20 @@
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="MNC_FRZN"  minOccurs="0">
+                    <xs:element name="MNC_FRZN" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Total Number of mononucleated cells (post processing, prior
                                 to cryopreservation)
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CD34PC"  minOccurs="0">
+                    <xs:element name="CD34PC" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Total number of CD34+ cells (before processing)
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CD34PC_FRZN"  minOccurs="0">
+                    <xs:element name="CD34PC_FRZN" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Total number of CD34+ cells (post processing, prior to
                                 cryopreservation)
@@ -342,17 +342,17 @@
                             <xs:documentation xml:lang="en">Viability as percentage value</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VIABILITY_DATE"  minOccurs="0">
+                    <xs:element name="VIABILITY_DATE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Date that viability was tested</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VIABILITY_CELLS"  minOccurs="0">
+                    <xs:element name="VIABILITY_CELLS" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Type of cells tested for viability</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="VIABILITY_METHOD"  minOccurs="0">
+                    <xs:element name="VIABILITY_METHOD" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Method used to calculate the viability</xs:documentation>
                         </xs:annotation>
@@ -362,23 +362,23 @@
                             <xs:documentation xml:lang="en">Number of attached segments available</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="DNA_SMPL"  minOccurs="0">
+                    <xs:element name="DNA_SMPL" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">DNA samples available?</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="OTH_SMPL"  minOccurs="0">
+                    <xs:element name="OTH_SMPL" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Samples other than DNA available?</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CT_COMPLETE_DATE"  minOccurs="0">
+                    <xs:element name="CT_COMPLETE_DATE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Date of completion of confirmatory typing (CT)
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="CT_SMPL_TYPE"  minOccurs="0">
+                    <xs:element name="CT_SMPL_TYPE" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation xml:lang="en">Confirmatory typing (CT) sample type</xs:documentation>
                         </xs:annotation>
@@ -504,12 +504,12 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="LISTING_ORGANIZATION"  use="required">
+        <xs:attribute name="LISTING_ORGANIZATION" use="required">
             <xs:annotation>
                 <xs:documentation xml:lang="en">Organisation that lists the donor/cbu provided as ION</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="POOL"  use="required">
+        <xs:attribute name="POOL" use="required">
             <xs:annotation>
                 <xs:documentation>Physical location of the donors/CBUs of the inventory provided as ION
                 </xs:documentation>
@@ -520,7 +520,7 @@
                 <xs:documentation xml:lang="en">Type of the inventory items, i.e. donor or CBU</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="UPDATE_MODE"  use="required">
+        <xs:attribute name="UPDATE_MODE" use="required">
             <xs:annotation>
                 <xs:documentation xml:lang="en">Update mode of the inventory, i.e. FULL or DIFF</xs:documentation>
             </xs:annotation>
@@ -528,6 +528,11 @@
         <xs:attribute name="SNAPSHOT_TIME" type="xs:dateTime" use="optional">
             <xs:annotation>
                 <xs:documentation xml:lang="en">Timestamp of the 'data snapshot' (in UTC)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SCHEMA_VERSION" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Current XSD schema version</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
