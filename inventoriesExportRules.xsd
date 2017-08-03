@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified"
+           version="2.0">
+    <xs:simpleType name="UPDATE_MODE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Inventory update mode</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FULL"/>
+            <xs:enumeration value="DIFF"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CONTENT_TYPE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Inventory content type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="C">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CBU</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Donor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Both</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LISTING_ORGANIZATION_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Issuing Organisation Number (ION) allocated by ICBBA (e.g. 7748 ~ ABMDR)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="POOL_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Issuing Organisation Number (ION) allocated by ICBBA (e.g. 7748 ~ ABMDR)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SEX_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Sex</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Male</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="F">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Female</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ABO_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Blood group</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood group A</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood group B</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="O">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood group O (letter O!)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AB">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood group AB</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="RHESUS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Rhesus</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ETHN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Ethnic group</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AFNA">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">African: North Africa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AFSS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">African: Sub-Saharan Africa</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASSW">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: Southwest Asia (Middle East, Turkey)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASSO">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: Southern Asia (India, Pakistan, Bangladesh, Sri Lanka,
+                        Bhutan, Nepal)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASCE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: Central Asia (Eastern Russia, Kazakhstan, Uzbekistan,
+                        Kyrgyzstan, Tajikistan)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASSE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: Southeast Asia (China, Mongolia, Burma, Laos, Cambodia,
+                        Thailand, Vietnam, Taiwan)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASNE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: North and Northeast Asia (Japan, North Korea, South Korea)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ASOC">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: Oceania (Pacific Islands excluding Japan, Australia, Taiwan,
+                        Sakhalin, Aleutian Islands)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CAEU">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Caucasian: Mainland Europe, Greenland, Iceland, Western Russia)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CAER">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Caucasian: Eastern Russia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CANA">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Caucasian: North America (USA, Canada, Mexico)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CAAU">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Caucasian: Australia (Australia, New Zealand)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="HICA">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hispanic: Central America, Caribbean</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="HISA">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hispanic: South America</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AF">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">African: unspecific</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Asian: unspecific</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CA">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Caucasian: unspecific</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="HI">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hispanic: unspecific</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MX">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Mixed / multiple</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other (e.g. Australian Aborigine)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UK">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unknown</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CCR5_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">CCR5 status</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Deletion (delta 32) - homozygous</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WW">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Wildtype - homozygous</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DW">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Deletion (delta 32) / wildtype - heterozygous</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="COLL_TYPE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Collection type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Marrow</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">PBSC</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Both</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PROC_METH_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Processing method</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HES">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hydroxy-Ethyl-Starch</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DGS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Density Gradient Separation</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CEN">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Centrifuge</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FIL">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Filtration</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FIC">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">FICOL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PER">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">PERCOL</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OTH">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PROC_METH_TYPE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Processing method type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MAN">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Manual</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="SPX">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Sepax</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OTP">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Optipress II</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AXP">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">AXP</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OTH">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FREEZE_METH_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Freezing method</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="C">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Controlled rate</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="M">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Manual</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PROD_MOD_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Product modification</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BCE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Buffy Coat Enriched</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DNE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Density Enriched</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PLR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Plasma Reduced (Volume reduction only)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PRR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Plasma and RBC Reduced</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RBR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">RBC Reduced (depletion)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NOT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Not reduced</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OTH">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BAG_TYPE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Type of bag used (bag fractions / split unit)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="80/20"/>
+            <xs:enumeration value="50/50"/>
+            <xs:enumeration value="40/60"/>
+            <xs:enumeration value="NS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">No split</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BACT_CULT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Culture value</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Not done</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FUNG_CULT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Culture value</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="D">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Not done</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HEMO_STATUS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Hemoglobinopathy screening status</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DN">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Screening done, normal results</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DU">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Screening done, unusual findings</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">No screening done</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Can be done at time of release</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NC">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Cannot be done</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Thalassemia</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Drepanocytosis</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="STATUS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Status</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AV">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Available</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TU">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Temporarily unavailable, reason specified in STAT_REASON
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Reserved for the patient specified in the RSV_PAT</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Deleted; only applicable for update mode DIFF</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="statReasonDonType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Status reason (donor)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DO">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Donor is too old</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Donor died</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Medical reasons</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Personal reasons</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TX">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">After transplantation</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MO">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Donor moved</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UC">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unable to contact donor</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TQ">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Typing questionable</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other reasons</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UK">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unknown</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="STAT_REASON_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Status reason (CBU)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="QR">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Quarantined</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="AD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Administrative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CD">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CBU destroyed or damaged</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Distributed for infusion</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="XP">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Expired</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MR">
+                <xs:annotation>
+                    <xs:documentation>Medical reasons</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other reasons</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="UK">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unknown</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="idmValueType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">IDM result value set: P, N</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="idmValueExtType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Extended IDM result value set: P,G,M,B,H,O,N</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="P">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG or IgM positive, test did not differentiate</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="G">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG positive, IgM negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="M">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG negative, IgM positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="B">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG positive, IgM positive</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="H">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG positive, IgM not tested</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="N">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG negative, IgM negative</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="O">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">IgG negative, IgM not tested</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VIABILITY_CELLS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Type of cells tested for viability</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TNC"/>
+            <xs:enumeration value="CD34PC"/>
+            <xs:enumeration value="CD45PC"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VIABILITY_METHOD_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Method used for viability test</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="7A">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">7AAD</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PI">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Proprium Iodide</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="TB">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Trypan Blue</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="OT">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Other</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CT_SMPL_TYPE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Confirmatory typing sample type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CBU contiguous attached segment</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="WB">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Whole blood sample</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="RC">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Red cell fraction (pellet)</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="FP">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood spotted filter paper</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ED">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Extracted DNA</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="kirLocusType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">KIR locus type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="POS">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Presence of KIR gene</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NEG">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Absence of KIR gene</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CMV_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BIRTH_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="STAT_END_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CONTACT_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CHECKUP_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="COLL_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="PROC_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FREEZE_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VIABILITY_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CT_COMPLETE_DATE_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Date without timezone information</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:date">
+            <xs:pattern value="[^:Z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ALT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Alanine aminotransferase status in units per litre</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HLA_SER_F1">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HLA_SER_F2">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HLA_DNA_F1">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HLA_DNA_F2">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="IDM_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Infectious disease markers (IDM) and other relevant tests</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="CMV" type="idmValueExtType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CMV status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CMV_NAT" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CMV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CMV_DATE" type="CMV_DATE_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of CMV test</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HBS_AG" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (hepatitis B surface antigen)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HBC" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (antibody to hepatitis B core antigen)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HBS" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (antibody to hepatitis B surface antigen)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HCV" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis C status (antibody to hepatitis C virus)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HIV_12" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Anti-HIV 1/2 status.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HIV_1_NAT" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HIV-1 NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HIV_P24" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HIV p24 status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HCV_NAT" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HCV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HTLV" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Antibody to HTLV I/II</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SYPHILIS" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Syphilis status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WNV" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">WNV status.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CHAGAS" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Chagas status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EBV" type="idmValueExtType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">EBV status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TOXO" type="idmValueExtType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Toxoplasmosis status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HBV_NAT" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HBV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PB19_NAT" type="idmValueType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">ParvoB19 NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ALT" type="ALT_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Alanine aminotransferase status in units per litre
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="kirType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">KIR genotype</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="KIR2DL1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL2" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL3" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL4" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL4</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL5A" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL5A</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL5B" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL5B</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS2" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS3" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS4" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS4</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS5" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS5</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DP1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DP1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL2" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL3" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DS1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DS1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DP1" type="kirLocusType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DP1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR_GL" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">URI that refers to a GL-string registered with a GL-service or
+                        direct GL-string for absence / presence. Field is not used at the moment and should therefore
+                        always be empty.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaSerFieldsType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA values obtained by serological typing methods</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="FIELD1" type="HLA_SER_F1">
+            </xs:element>
+            <xs:element name="FIELD2" type="HLA_SER_F2">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaDnaFieldsType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA values obtained by DNA based typing methods</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="FIELD1" type="HLA_DNA_F1">
+            </xs:element>
+            <xs:element name="FIELD2" type="HLA_DNA_F2">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaLocusType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA locus type comprising SER and DNA fields</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="SER" type="hlaSerFieldsType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="DNA" type="hlaDnaFieldsType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="PLA_QUANT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">>Total quantity of plasma available in ml</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.0"/>
+            <xs:maxInclusive value="99.9"/>
+            <xs:fractionDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="WEIGHT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total quantity of plasma available in ml</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SER_QUANT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total quantity of serum available in ml</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.0"/>
+            <xs:maxInclusive value="99.9"/>
+            <xs:fractionDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AL_PLA_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of plasma aliquots available</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AL_SER_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of serum aliquots available</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ID_BANK_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Identification used by associated CBU manufacturer to identify maternal
+                details
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AL_RED_BC_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of red cell fraction aliquots</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="idType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Identification used to identify the maternal donor as assigned by the
+                registry
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ATT_SEG_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of attached segments available</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VIABILITY_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Viability as percentage value</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="RED_BC_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total number of nucleated red blood cells (post processing, prior to
+                cryopreservation)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0.0E0"/>
+            <xs:maxInclusive value="999.9E7"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VOL_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total volume frozen (post processing, prior to cryopreservation) in ml
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HEIGHT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Height in cm</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NMBR_TRANS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of blood transfusions</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NMBR_PREG_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of pregnancies</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NMBR_MARR_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of marrow donations</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NMBR_PBSC_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of PBSC donations</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VOL_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Collected volume before processing (without additives) in ml
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BAGS_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Number of bags for CBU sub units</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="LOCAL_ID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Identification of CBU locally at the associated CBB</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BAG_ID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Identification as it appears on the bag. If more than one
+                bag is available then this data attribute is not populated
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BANK_MANUF_ID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Unique identifier of the CBB that manufactured the CBU: The
+                value comprises the EMDIS hub code + id allocated by the associated EMDIS hub, where the
+                cord registry is an EMDIS member, otherwise the two digit ISO country code of the
+                associated cord registry + id identification allocated by the associated cord registry.
+                For example: AUCBB1, SB890
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="BANK_DISTRIB_ID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Unique identifier of the CBB distributing the CBU: : The
+                value comprises the EMDIS hub code + id allocated by the associated EMDIS hub, where the
+                cord registry is an EMDIS member, otherwise the two digit ISO country code of the
+                associated cord registry + id identification allocated by the associated cord registry.
+                For example: AUCBB1, SB890
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Unique identifier of the donor/CBU: The value comprises the EMDIS
+                hub code + donor identification allocated by the associated donor registry, where the sending
+                organisation is an EMDIS member, otherwise the two digit ISO country code of the associated
+                donor registry + donor identification allocated by the associated donor registry. For example:
+                AU600196166, DEGOE-35487, US087013165, SB45
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="GRID_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Global registration identifier of the donor/CBU.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="19"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ATTR_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Describing attribute of the donor/CBU according to house rules of
+                the sending organization.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="RSV_PAT_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Unique identifier of the patient the donor/CBU is reserved for
+                (STATUS=RS). The value comprises the EMDIS patient identification, where the patient search
+                centre is an EMDIS member, otherwise the value is empty. For example: AU9654021, DE275342,
+                US2277450.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TNC_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total number of nucleated cells (before processing)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TNC_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total number of nucleated cells (post processing, prior to
+                cryopreservation)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="MNC_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total Number of mononucleated cells (post processing, prior
+                to cryopreservation)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CD34PC_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total number of CD34+ cells (before processing)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CD34PC_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total number of CD34+ cells (post processing, prior to
+                cryopreservation)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CFU_FRZN_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Total count of colony forming units (post processing, prior
+                to cryopreservation)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:float"></xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DNA_SMPL_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">DNA samples available?</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+    <xs:simpleType name="OTH_SMPL_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Samples other than DNA available?</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+    <xs:simpleType name="SNAPSHOT_TIME_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Timestamp of the 'data snapshot' (in UTC)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+    <xs:simpleType name="CREATION_TIME_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Creation timestamp of the inventories (in UTC)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+    <xs:complexType name="hlaLocusDnaOnlyType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA locus type comprising DNA fields only</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="hlaLocusType">
+                <xs:sequence>
+                    <xs:element name="SER" type="hlaSerFieldsType" minOccurs="0" maxOccurs="0"/>
+                    <xs:element name="DNA" type="hlaDnaFieldsType" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="hlaType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA genotype</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="A" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="B" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="C" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DRB1" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DRB3" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DRB4" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DRB5" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DQA1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DQB1" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DPA1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DPB1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="itemBaseType" abstract="true">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Abstract base type of donor and CBU items</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ID" type="ID_TYPE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unique identifier of the donor/CBU: The value comprises the EMDIS
+                        hub code + donor identification allocated by the associated donor registry, where the sending
+                        organisation is an EMDIS member, otherwise the two digit ISO country code of the associated
+                        donor registry + donor identification allocated by the associated donor registry. For example:
+                        AU600196166, DEGOE-35487, US087013165, SB45
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="GRID" type="GRID_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Global registration identifier of the donor/CBU.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ATTR" type="ATTR_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Describing attribute of the donor/CBU according to house rules of
+                        the sending organization.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="BIRTH_DATE" type="BIRTH_DATE_TYPE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of birth of the donor/CBU.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SEX" type="SEX_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Biological gender of the donor/CBU. Mandatory for donors, optional
+                        for CBUs.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ABO" type="ABO_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Blood group (ABO) of the donor/CBU.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RHESUS" type="RHESUS_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Rhesus (Rh) factor of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ETHN" type="ETHN_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Ethnic group of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CCR5" type="CCR5_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CCR5 status of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HLA" type="hlaType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HLA genotype of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR" type="kirType" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR genotype of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="IDM" type="IDM_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Infectious disease markers (IDM) and other relevant tests of the
+                        donor/CBU
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="RSV_PAT" type="RSV_PAT_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Unique identifier of the patient the donor/CBU is reserved for
+                        (STATUS=RS). The value comprises the EMDIS patient identification, where the patient search
+                        centre is an EMDIS member, otherwise the value is empty. For example: AU9654021, DE275342,
+                        US2277450.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="STATUS" type="STATUS_TYPE">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Status of the donor/CBU</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="STAT_END_DATE" type="STAT_END_DATE_TYPE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date until which the current status will be applicable
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DONOR_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A donor is an adult person who has consented to donate haematopoietic
+                progenitor cells to an unrelated patient.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="itemBaseType">
+                <xs:sequence>
+                    <xs:element name="STAT_REASON" type="statReasonDonType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Additional information relevant to the donor status
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CONTACT_DATE" type="CONTACT_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date of last confirmed contact</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CHECKUP_DATE" type="CHECKUP_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date of the last medical checkup</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="WEIGHT" type="WEIGHT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Weight in kg</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="HEIGHT" type="HEIGHT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Height in cm</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NMBR_TRANS" type="NMBR_TRANS_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of blood transfusions</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NMBR_PREG" type="NMBR_PREG_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of pregnancies</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NMBR_MARR" type="NMBR_MARR_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of marrow donations</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NMBR_PBSC" type="NMBR_PBSC_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of PBSC donations</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="COLL_TYPE" type="COLL_TYPE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Collection type, i.e. the willingness of the donor to donate
+                                in a specific manner
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="CBU_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">A cord blood unit (CBU) is a banked, frozen blood product extracted from a
+                newborn baby's umbilical cord.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="itemBaseType">
+                <xs:sequence>
+                    <xs:element name="STAT_REASON" type="STAT_REASON_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Additional information relevant to the CBU status
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="LOCAL_ID" type="LOCAL_ID_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Identification of CBU locally at the associated CBB
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BAG_ID" type="BAG_ID_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Identification as it appears on the bag. If more than one
+                                bag is available then this data attribute is not populated
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BANK_MANUF_ID" type="BANK_MANUF_ID_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Unique identifier of the CBB that manufactured the CBU: The
+                                value comprises the EMDIS hub code + id allocated by the associated EMDIS hub, where the
+                                cord registry is an EMDIS member, otherwise the two digit ISO country code of the
+                                associated cord registry + id identification allocated by the associated cord registry.
+                                For example: AUCBB1, SB890
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BANK_DISTRIB_ID" type="BANK_DISTRIB_ID_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Unique identifier of the CBB distributing the CBU: : The
+                                value comprises the EMDIS hub code + id allocated by the associated EMDIS hub, where the
+                                cord registry is an EMDIS member, otherwise the two digit ISO country code of the
+                                associated cord registry + id identification allocated by the associated cord registry.
+                                For example: AUCBB1, SB890
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="COLL_DATE" type="COLL_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date that the CBU was collected</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PROC_DATE" type="PROC_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date that the processing started</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PROC_METH" type="PROC_METH_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Processing method used</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PROC_METH_TYPE" type="PROC_METH_TYPE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Processing method type used</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="FREEZE_DATE" type="FREEZE_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date that the CBU was frozen.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="FREEZE_METH" type="FREEZE_METH_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Freezing method used</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PROD_MOD" type="PROD_MOD_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Product modifications made</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BAG_TYPE" type="BAG_TYPE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Type of bag used (bag fractions / split unit)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BAGS" type="BAGS_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of bags for CBU sub units</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BACT_CULT" type="BACT_CULT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Bacterial culture</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="FUNG_CULT" type="FUNG_CULT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Fungal culture</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="HEMO_STATUS" type="HEMO_STATUS_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Hemoglobinopathy screening status</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VOL" type="VOL_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Collected volume before processing (without additives) in
+                                ml
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VOL_FRZN" type="VOL_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total volume frozen (post processing, prior to
+                                cryopreservation) in ml
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TNC" type="TNC_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total number of nucleated cells (before processing)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TNC_FRZN" type="TNC_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total number of nucleated cells (post processing, prior to
+                                cryopreservation)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="RED_BC_FRZN" type="RED_BC_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total number of nucleated red blood cells (post processing,
+                                prior to cryopreservation)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MNC_FRZN" type="MNC_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total Number of mononucleated cells (post processing, prior
+                                to cryopreservation)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CD34PC" type="CD34PC_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total number of CD34+ cells (before processing)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CD34PC_FRZN" type="CD34PC_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total number of CD34+ cells (post processing, prior to
+                                cryopreservation)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CFU_FRZN" type="CFU_FRZN_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total count of colony forming units (post processing, prior
+                                to cryopreservation)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VIABILITY" type="VIABILITY_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Viability as percentage value</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VIABILITY_DATE" type="VIABILITY_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date that viability was tested</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VIABILITY_CELLS" type="VIABILITY_CELLS_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Type of cells tested for viability</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="VIABILITY_METHOD" type="VIABILITY_METHOD_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Method used to calculate the viability</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ATT_SEG" type="ATT_SEG_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of attached segments available</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DNA_SMPL" type="DNA_SMPL_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">DNA samples available?</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="OTH_SMPL" type="OTH_SMPL_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Samples other than DNA available?</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CT_COMPLETE_DATE" type="CT_COMPLETE_DATE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Date of completion of confirmatory typing (CT)
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="CT_SMPL_TYPE" type="CT_SMPL_TYPE_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Confirmatory typing (CT) sample type</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AL_RED_BC" type="AL_RED_BC_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of red cell fraction aliquots</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AL_SER" type="AL_SER_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of serum aliquots available</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SER_QUANT" type="SER_QUANT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total quantity of serum available in ml</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AL_PLA" type="AL_PLA_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Number of plasma aliquots available</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PLA_QUANT" type="PLA_QUANT_TYPE" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Total quantity of plasma available in ml</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MAT" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation xml:lang="en">Data of the mother of the infant associated with the CBU
+                            </xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="ID" type="idType" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Identification used to identify the maternal
+                                            donor as assigned by the registry
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="ID_BANK" type="ID_BANK_TYPE" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Identification used by associated CBU
+                                            manufacturer to identify maternal details
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="HLA" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">HLA genotype</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:complexType>
+                                        <xs:complexContent>
+                                            <xs:extension base="hlaType"/>
+                                        </xs:complexContent>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="IDM" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Infectious disease markers (IDM) and other
+                                            relevant tests
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                    <xs:complexType>
+                                        <xs:complexContent>
+                                            <xs:extension base="IDM_TYPE"/>
+                                        </xs:complexContent>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="AL_SER" type="AL_SER_TYPE" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Number of serum aliquots available
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="SER_QUANT" type="SER_QUANT_TYPE" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Total quantity of serum available in ml
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="AL_PLA" type="AL_PLA_TYPE" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Number of plasma aliquots available
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:element name="PLA_QUANT" type="PLA_QUANT_TYPE" minOccurs="0">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">Total quantity of plasma available in ml
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="INVENTORY_TYPE">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Type representing an inventory of donors and/or cord blood units (CBUs)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="DONOR" type="DONOR_TYPE" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">A donor is an adult person who has consented to donate
+                        haematopoietic progenitor cells, that is, HPC(M) or HPC(A) and similar products to an unrelated
+                        patient.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CBU" type="CBU_TYPE" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">A cord blood unit (CBU) is a banked, frozen blood product extracted
+                        from a newborn baby's umbilical cord.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="LISTING_ORGANIZATION" type="LISTING_ORGANIZATION_TYPE" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Organisation that lists the donor/cbu provided as ION</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="POOL" type="POOL_TYPE" use="required">
+            <xs:annotation>
+                <xs:documentation>Physical location of the donors/CBUs of the inventory provided as ION
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="CONTENT_TYPE" type="CONTENT_TYPE_TYPE" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Type of the inventory items, i.e. donor or CBU</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="UPDATE_MODE" type="UPDATE_MODE_TYPE" use="required">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Update mode of the inventory, i.e. FULL or DIFF</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="SNAPSHOT_TIME" type="SNAPSHOT_TIME_TYPE" use="optional">
+            <xs:annotation>
+                <xs:documentation xml:lang="en">Timestamp of the 'data snapshot' (in UTC)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="INVENTORIES">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Root element representing a set of inventories</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="INVENTORY" type="INVENTORY_TYPE" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="CREATION_TIME" type="CREATION_TIME_TYPE" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Creation timestamp of the inventories (in UTC)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
