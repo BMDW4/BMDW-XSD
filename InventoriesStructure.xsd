@@ -525,12 +525,12 @@
                 <xs:documentation xml:lang="en">Update mode of the inventory, i.e. FULL or DIFF</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="SNAPSHOT_TIME" type="xs:dateTime" use="optional">
+        <xs:attribute name="SNAPSHOT_TIME" use="optional">
             <xs:annotation>
                 <xs:documentation xml:lang="en">Timestamp of the 'data snapshot' (in UTC)</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="SCHEMA_VERSION" type="xs:float" use="optional">
+        <xs:attribute name="SCHEMA_VERSION" use="optional">
             <xs:annotation>
                 <xs:documentation xml:lang="en">Current XSD schema version</xs:documentation>
             </xs:annotation>
@@ -544,7 +544,7 @@
             <xs:sequence>
                 <xs:element name="INVENTORY" type="inventoryType" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="CREATION_TIME" type="xs:dateTime" use="optional">
+            <xs:attribute name="CREATION_TIME" use="optional">
                 <xs:annotation>
                     <xs:documentation xml:lang="en">Creation timestamp of the inventories (in UTC)</xs:documentation>
                 </xs:annotation>
