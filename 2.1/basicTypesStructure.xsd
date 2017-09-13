@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified"
+           version="2.0">
+    <xs:complexType name="idmType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">Infectious disease markers (IDM) and other relevant tests</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="CMV" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CMV status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CMV_NAT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">CMV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CMV_DATE" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of CMV test</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HBS_AG" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (hepatitis B surface antigen)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HBC" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (antibody to hepatitis B core antigen)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HBS" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis B status (antibody to hepatitis B surface antigen)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HCV" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Hepatitis C status (antibody to hepatitis C virus)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HIV_12" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Anti-HIV 1/2 status.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HIV_1_NAT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HIV-1 NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HIV_P24" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HIV p24 status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HCV_NAT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HCV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ANTI_HTLV" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Antibody to HTLV I/II</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SYPHILIS" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Syphilis status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="WNV" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">WNV status.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CHAGAS" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Chagas status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EBV" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">EBV status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TOXO" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Toxoplasmosis status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="HBV_NAT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">HBV NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PB19_NAT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">ParvoB19 NAT status</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ALT" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Alanine aminotransferase status in units per litre
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="kirType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">KIR genotype</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="KIR2DL1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL2" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL3" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL4" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL4</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL5A" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL5A</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DL5B" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DL5B</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS2" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS3" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS3</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS4" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS4</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DS5" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DS5</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR2DP1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 2DP1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL2" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DL3" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DL3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DS1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DS1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR3DP1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">KIR gene 3DP1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KIR_GL" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">URI that refers to a GL-string registered with a GL-service or
+                        direct GL-string for absence / presence. Field is not used at the moment and should therefore
+                        always be empty.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaSerFieldsType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA values obtained by serological typing methods</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="FIELD1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">FIELD1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FIELD2">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">FIELD2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaDnaFieldsType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA values obtained by DNA based typing methods</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="FIELD1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">FIELD1</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FIELD2">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">FIELD2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaLocusType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA locus type comprising SER and DNA fields</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="SER" type="hlaSerFieldsType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="DNA" type="hlaDnaFieldsType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="hlaLocusDnaOnlyType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA locus type comprising DNA fields only</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="hlaLocusType">
+                <xs:sequence>
+                    <xs:element name="SER" type="hlaSerFieldsType" minOccurs="0" maxOccurs="0"/>
+                    <xs:element name="DNA" type="hlaDnaFieldsType" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="hlaType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">HLA genotype</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="A" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="B" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="C" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DRB1" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DRB3" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DRB4" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DRB5" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DQA1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DQB1" type="hlaLocusType" minOccurs="0"/>
+            <xs:element name="DPA1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+            <xs:element name="DPB1" type="hlaLocusDnaOnlyType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
